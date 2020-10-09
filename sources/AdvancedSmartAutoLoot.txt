@@ -2,9 +2,9 @@
 ## Author: Agathorn & Archshot
 ## Description: A smarter AutoLoot manager that allows you to control what is auto looted and what isn't
 ## APIVersion: 100030
-## Version: 1.0.2
+## Version: 1.0.3
 ## SavedVariables: AdvancedSmartAutoLootSavedVariables
-## OptionalDependsOn: LibAddonMenu-2.0, LibStub
+## DependsOn: LibAddonMenu-2.0
 
 ; DISCLAIMER:
 ;
@@ -18,11 +18,8 @@
 ;
 ;
 ; Original author: Agathorn
-; Updated and maintained by: Archshot
+; Updated and maintained by: Archshot, Mike Eshva
 
-
-Libs/LibStub/LibStub.lua
-Libs/LibAddonMenu-2.0/LibAddonMenu-2.0.lua
 
 AdvancedSmartAutoLootSettings.lua
 AdvancedSmartAutoLoot.lua

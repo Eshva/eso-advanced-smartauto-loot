@@ -3,11 +3,13 @@ AdvancedSmartAutoLootSettings.db                            = nil
 AdvancedSmartAutoLootSettings.EVENT_TOGGLE_AUTOLOOT         = 'ADVANCEDSMARTAUTOLOOT_TOGGLE_AUTOLOOT'
 AdvancedSmartAutoLootSettings.originalAuthor = "Agathorn"
 AdvancedSmartAutoLootSettings.maintainer = "Archshot"
-AdvancedSmartAutoLootSettings.version = "1.0.2"
+AdvancedSmartAutoLootSettings.version = "1.0.3"
 
 local CBM = CALLBACK_MANAGER
-local LAM2 = LibStub( 'LibAddonMenu-2.0' )
-if ( not LAM2 ) then return end
+if ( not LibAddonMenu2 ) then
+    d("No LibAddonMenu2 found. You need to install this library.")
+    return
+end
 
 function AdvancedSmartAutoLootSettings:New( ... )
     local result = ZO_Object.New( self )
@@ -17,7 +19,7 @@ end
 
 function AdvancedSmartAutoLootSettings:Initialize( db )
     self.db = db
-    local dropdownChoicesFilter = 
+    local dropdownChoicesFilter =
     {
     	[1] = "Always loot",
     	[2] = "Never loot",
@@ -35,7 +37,7 @@ function AdvancedSmartAutoLootSettings:Initialize( db )
     	[3] = "Only legal",
     	[4] = "Only stolen",
     }
-	local panelData = 
+	local panelData =
 	{
 		type = "panel",
 		name = "Advanced Smart Auto Loot",
@@ -43,7 +45,7 @@ function AdvancedSmartAutoLootSettings:Initialize( db )
     	version = self.version,
 		registerForDefaults = true,
 	}
-	local optionsData = 
+	local optionsData =
 	{
 		[1] = {
 			type = "submenu",
@@ -257,8 +259,8 @@ function AdvancedSmartAutoLootSettings:Initialize( db )
 			}
 		}
 	}
-	LAM2:RegisterAddonPanel("AdvancedSmartAutoLootOptions", panelData)
-	LAM2:RegisterOptionControls("AdvancedSmartAutoLootOptions", optionsData)
+	LibAddonMenu2:RegisterAddonPanel("AdvancedSmartAutoLootOptions", panelData)
+	LibAddonMenu2:RegisterOptionControls("AdvancedSmartAutoLootOptions", optionsData)
 end
 
 function AdvancedSmartAutoLootSettings:ToggleAutoLoot()
